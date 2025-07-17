@@ -1,20 +1,67 @@
 import { motion } from 'framer-motion';
+import { Mail, Phone, Github, Linkedin } from 'lucide-react';
 
 export function Contact() {
   return (
-    <motion.div className="p-10"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}>
-      <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
-      <form action="https://formspree.io/f/{your-id}" method="POST" className="flex flex-col gap-4 max-w-md">
-        <input type="text" name="name" placeholder="Your Name" className="p-2 rounded" required />
-        <input type="email" name="email" placeholder="Your Email" className="p-2 rounded" required />
-        <textarea name="message" placeholder="Your Message" className="p-2 rounded h-32" required />
-        <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
-          Send Message
-        </button>
-      </form>
-    </motion.div>
+    <motion.section
+      className="min-h-screen px-6 py-16 bg-gradient-to-br from-black to-gray-900 text-white"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      id="contact"
+    >
+      <div className="max-w-3xl mx-auto text-center">
+        <h2 className="text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+          Contact Me
+        </h2>
+        <p className="text-lg text-gray-300 mb-12">
+          Let's connect! Feel free to reach out via any of the platforms below.
+        </p>
+
+        <div className="flex flex-col gap-6 items-center">
+          <ContactItem
+            icon={<Mail className="w-5 h-5 text-cyan-400" />}
+            label="Email"
+            value="geethjayawardena2000@gmail.com"
+            href="mailto:geethjayawardena2000@gmail.com"
+          />
+          <ContactItem
+            icon={<Phone className="w-5 h-5 text-cyan-400" />}
+            label="Phone"
+            value="+94 710 974 357"
+            href="tel:+94710974357"
+          />
+          <ContactItem
+            icon={<Linkedin className="w-5 h-5 text-cyan-400" />}
+            label="LinkedIn"
+            value="Geeth_Jayawardena"
+            href="https://www.linkedin.com/in/Geeth_Jayawardena"
+          />
+          <ContactItem
+            icon={<Github className="w-5 h-5 text-cyan-400" />}
+            label="GitHub"
+            value="Geeth-Jayawardena"
+            href="https://github.com/Geeth-Jayawardena"
+          />
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
+function ContactItem({ icon, label, value, href }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-3 px-4 py-3 rounded-md border border-cyan-500 hover:bg-cyan-500 hover:text-black transition-all duration-300 w-full max-w-sm"
+    >
+      {icon}
+      <div className="text-left">
+        <div className="text-sm text-gray-400">{label}</div>
+        <div className="font-medium">{value}</div>
+      </div>
+    </a>
   );
 }
