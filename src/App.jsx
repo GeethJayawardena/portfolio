@@ -27,6 +27,7 @@ export default function App() {
       <section id="contact"><Contact /></section>
       {selectedProject && (
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+
       )}
     </div>
   );
