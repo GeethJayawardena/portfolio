@@ -6,6 +6,9 @@ import { About } from './components/About';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { ProjectModal } from './components/ProjectModal';
+import { Qualification } from './components/Qualification';
+import { Services } from './components/Services';
+
 import './index.css';
 
 export default function App() {
@@ -19,6 +22,8 @@ export default function App() {
       <section id="projects">
         <Projects setSelectedProject={setSelectedProject} />
       </section>
+      <section id="qualification"><Qualification /></section>
+      <section id="services "><Services  /></section>
       <section id="contact"><Contact /></section>
       {selectedProject && (
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
